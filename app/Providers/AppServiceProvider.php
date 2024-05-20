@@ -24,6 +24,11 @@ use App\Repositories\OrderDetail\OrderDetailRepositoryInterface;
 use App\Services\OrderDetail\OrderDetailService;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 
+use App\Repositories\User\UserRepository;
+use App\Repositories\User\UserRepositoryInterface;
+use App\Services\User\UserService;
+use App\Services\User\UserServiceInterface;
+
 use Illuminate\Pagination\Paginator;
 
 
@@ -75,7 +80,7 @@ class AppServiceProvider extends ServiceProvider
 
         );
 
-        //Order
+        //Order detail
         $this->app->singleton(
             OrderDetailRepositoryInterface::class,
             OrderDetailRepository::class
@@ -85,6 +90,19 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             OrderDetailServiceInterface::class,
             OrderDetailService::class
+
+        );
+
+        //User
+        $this->app->singleton(
+            UserRepositoryInterface::class,
+            UserRepository::class
+
+        );
+
+        $this->app->singleton(
+            UserServiceInterface::class,
+            UserService::class
 
         );
     }

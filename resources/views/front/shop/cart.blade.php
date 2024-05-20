@@ -22,20 +22,17 @@
     
     
     <div class="single-product-area">
+        @if( Cart::count() > 0)
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Search Products</h2>
-                        {{-- <form action="#">
-                            <input type="text" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form> --}}
+                       
 
                         <form action="shop">
                             <input name="search" value="{{ request('search') }}" type="text" placeholder="Search products...">
-                            {{-- <input type="submit" value="Search"> --}}
                             <button type="submit">Search</button>
                         </form>
                     </div>
@@ -114,12 +111,11 @@
                                             <td class="product-name">
                                                 <a  href="shop/product/{{ $cart->id }}">{{ $cart->name }}</a> 
                                             </td>
-                                            {{-- <form action="{{ route('cart.updateItem', $cart->rowId) }}" method="POST">
-                                                @csrf --}}
+                                         
 
                                             <td class="product-price">
                                                 <span class="amount">${{ number_format($cart->price, 2) }}</span> 
-                                                {{-- <input type="text" name="price" value="${{ number_format($cart->price, 2) }}" class="form-control" readonly> --}}
+                                                
                                             </td>
 
                                             <td class="product-quantity">
@@ -132,11 +128,7 @@
                                                 </div>
                                             </td>
 
-                                            {{-- <td>
-                                                <button type="submit" name="update_cart" class="button" class="btn btn-primary">Update</button>
-
-                                            </td> --}}
-                                            {{-- </form> --}}
+                                           
                                             <td class="product-subtotal">
                                                 <input type="hidden" name="items[{{ $cart->rowId }}][rowId]" value="{{ $cart->rowId }}">
                                                 <span class="amount">${{ number_format($cart->price * $cart->qty, 2) }}</span> 
@@ -155,16 +147,12 @@
                                                 {{-- <input type="submit" value="Update Cart" name="update_cart" class="button"> --}}
                                                 <button type="submit" name="update_cart" class="button" class="btn btn-primary">Update</button>
 
-                                                <a href="/checkout"  name="proceed" class="checkout-button button alt wc-forward">
+                                                <a href="./checkout"  name="proceed" class="checkout-button button alt wc-forward">
                                                Checkout
                                                 </a>
                                             </td>
                                             
                                         </tr>
-                                    {{-- </form> --}}
-                                    
-                                    
-
                                     </tbody>
                                 </table>
                             </form>
@@ -175,7 +163,7 @@
                             <div class="cross-sells">
                                 <h2>You may be interested in...</h2>
                                 <ul class="products">
-                                    {{-- @foreach( $relatedProducts as $product) --}}
+                                    
                                     <li class="product">
                                         <a href="/shop/product/2">
                                             <img width="325" height="325" alt="T_4_front" class="attachment-shop_cataơlog wp-post-image" src="front/img/product-2.jpg">
@@ -185,7 +173,7 @@
 
                                         <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="cart/add/2">Add to cart</a>
                                     </li>
-                                    {{-- @endforeach --}}
+                                    
 
                                     <li class="product">
                                         <a href="single-product.html">
@@ -496,7 +484,13 @@
                 </div>
             </div>
         </div>
+        @else
+            <div class="col-lg-12 m-5">
+                <h4>Your cart is empty</h4>
+            </div>
+        @endif
     </div>
+   
 @endsection
 
    

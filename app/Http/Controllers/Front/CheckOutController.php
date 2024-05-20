@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
+use DB;
+use App\Models\Order;
 
 
 
@@ -29,16 +31,17 @@ class CheckOutController extends Controller
         return view('front.checkout.index', compact('carts', 'total', 'subtotal'));
     }
 
+   
+
     public function addOrder(Request $request)
     {
+        // dd($request->all());
+        $data = $request->all();
         //add cart
-        $order = $this->orderService->create($request->all());
-
-        dd($order);
-
-
+        $order = $this->orderService->create($data);
         //add cart detail
         $carts = Cart::content();
+        // dd($carts);
         foreach ($carts as $cart) 
         {
             $data = [
@@ -49,7 +52,6 @@ class CheckOutController extends Controller
                 'total' => $cart->qty * $cart->price,
 
             ];
-            // $error = implode(',', $data);
             $this->orderDetailService->create($data);
         }
 
@@ -57,7 +59,13 @@ class CheckOutController extends Controller
         Cart::destroy();
 
         //Return message
-        return 'Success';
+        return redirect('checkout/result')->with('notification', 'Order placed successfully');
+    }
+
+    public function result()
+    {
+        $notification = 'demo..';
+        return view('front.checkout.result', compact('notification'));
     }
 }
 

@@ -18,17 +18,26 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        
         DB::table('users')->insert([
             [
                 'id' => 1,
-                'name' => 'CodeLean',
-                'email' => 'CodeLean@gmail.com',
+                'name' => 'minhtam',
+                'email' => 'minhtam@gmail.com',
                 'password' => Hash::make('123456'),
                 'avatar' => null,
-                'level' => 0,
+                'level' => 2,
                 'description' => null,
+
+                'company_name' => 'Fagi',
+                'country' => 'Viet Nam',
+                'street_address' => '184 Phuong Liet',
+                'postcode_zip' => '1',
+                'town_city' => 'Ha Noi',
+                'phone' => '0967856746'
             ],
+        ]);
+        DB::table('users')->insert([
+            
             [
                 'id' => 2,
                 'name' => 'admin',
@@ -44,7 +53,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'ShaneLynch@gmail.com',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-0.png',
-                'level' => 1,
+                'level' => 2,
                 'description' => 'Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo'
             ],
             [

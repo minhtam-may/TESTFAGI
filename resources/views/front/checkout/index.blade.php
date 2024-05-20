@@ -25,57 +25,13 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <div class="woocommerce-info">Returning customer? <a class="showlogin" data-toggle="collapse" href="#login-form-wrap" aria-expanded="false" aria-controls="login-form-wrap">Click here to login</a>
-                            </div>
+                            
 
-                            <form id="login-form-wrap" class="login collapse" method="">
-
-
-                                <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section.</p>
-
-                                <p class="form-row form-row-first">
-                                    <label for="username">Username or email <span class="required">*</span>
-                                    </label>
-                                    <input type="text" id="username" name="username" class="input-text">
-                                </p>
-                                <p class="form-row form-row-last">
-                                    <label for="password">Password <span class="required">*</span>
-                                    </label>
-                                    <input type="password" id="password" name="password" class="input-text">
-                                </p>
-                                <div class="clear"></div>
-
-
-                                <p class="form-row">
-                                    <input type="submit" value="Login" name="login" class="button">
-                                    <label class="inline" for="rememberme"><input type="checkbox" value="forever" id="rememberme" name="rememberme"> Remember me </label>
-                                </p>
-                                <p class="lost_password">
-                                    <a href="#">Lost your password?</a>
-                                </p>
-
-                                <div class="clear"></div>
-                            </form>
-
-                            <div class="woocommerce-info">Have a coupon? <a class="showcoupon" data-toggle="collapse" href="#coupon-collapse-wrap" aria-expanded="false" aria-controls="coupon-collapse-wrap">Click here to enter your code</a>
-                            </div>
-
-                            <form id="coupon-collapse-wrap" method="" class="checkout_coupon collapse">
-
-                                <p class="form-row form-row-first">
-                                    <input type="text" value="" id="coupon_code" placeholder="Coupon code" class="input-text" name="coupon_code">
-                                </p>
-
-                                <p class="form-row form-row-last">
-                                    <input type="submit" value="Apply Coupon" name="apply_coupon" class="button">
-                                </p>
-
-                                <div class="clear"></div>
-                            </form>
-
-                            <form enctype="multipart/form-data" action="" class="checkout" method="post" name="checkout">
+                            <form enctype="multipart/form-data" action="/checkout" method="post" >
                                 @csrf
+                                @method('PUT')
                                 <div id="customer_details" class="col2-set">
+                                    @if( Cart::count() > 0)
                                     <div class="col-1">
                                         <div class="woocommerce-billing-fields">
                                             <h3>Billing Details</h3>
@@ -334,7 +290,7 @@
                                             <p id="billing_first_name_field" class="form-row form-row-first validate-required">
                                                 <label class="" for="billing_first_name">First Name <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_first_name" name="first_name" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_first_name" name="first_name" class="input-text" value="{{ Auth::user()->name ?? '' }}">
                                             </p>
 
                                             <p id="billing_last_name_field" class="form-row form-row-last validate-required">
@@ -346,13 +302,13 @@
 
                                             <p id="billing_company_field" class="form-row form-row-wide">
                                                 <label class="" for="billing_company">Company Name</label>
-                                                <input type="text" value="" placeholder="" id="billing_company" name="company_name" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_company" name="company_name" class="input-text" value="{{ Auth::user()->company_name ?? '' }}">
                                             </p>
 
                                             <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
                                                 <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="Street address" id="billing_address_1" name="street_address" class="input-text ">
+                                                <input type="text" value="" placeholder="Street address" id="billing_address_1" name="street_address" class="input-text " value="{{ Auth::user()->street_address ?? '' }}">
                                             </p>
 
                                             {{-- <p id="billing_address_2_field" class="form-row form-row-wide address-field">
@@ -362,17 +318,17 @@
                                             <p id="billing_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required">
                                                 <label class="" for="billing_city">Town / City <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="Town / City" id="billing_city" name="town_city" class="input-text ">
+                                                <input type="text" value="" placeholder="Town / City" id="billing_city" name="town_city" class="input-text " value="{{ Auth::user()->town_city ?? '' }}">
                                             </p>
 
                                             <p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
                                                 <label class="" for="billing_state">Country</label>
-                                                <input type="text" id="billing_state" name="country" placeholder="Contry" value="" class="input-text ">
+                                                <input type="text" id="billing_state" name="country" placeholder="Country" value="" class="input-text " value="{{ Auth::user()->country ?? '' }}">
                                             </p>
                                             <p id="billing_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
                                                 <label class="" for="billing_postcode">Postcode <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="Postcode / Zip" id="billing_postcode" name="postcode_zip" class="input-text ">
+                                                <input type="text" value="" placeholder="Postcode / Zip" id="billing_postcode" name="postcode_zip" class="input-text " value="{{ Auth::user()->postcode_zip ?? '' }}">
                                             </p>
 
                                             <div class="clear"></div>
@@ -380,15 +336,17 @@
                                             <p id="billing_email_field" class="form-row form-row-first validate-required validate-email">
                                                 <label class="" for="billing_email">Email Address <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_email" name="email" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_email" name="email" class="input-text " value="{{ Auth::user()->email ?? '' }}">
                                             </p>
 
                                             <p id="billing_phone_field" class="form-row form-row-last validate-required validate-phone">
                                                 <label class="" for="billing_phone">Phone <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_phone" name="phone" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_phone" name="phone" class="input-text " value="{{ Auth::user()->phone ?? '' }}">
                                             </p>
                                             <div class="clear"></div>
+                                            
+
 
 
                                             {{-- <div class="create-account">
@@ -403,6 +361,8 @@
 
                                         </div>
                                     </div>
+                                    
+
 
                                     <div class="col-2">
                                         
@@ -435,14 +395,14 @@
                                                 </td>
                                             </tr>
 
-                                            <tr class="shipping">
+                                            {{-- <tr class="shipping">
                                                 <th>Shipping and Handling</th>
                                                 <td>
 
                                                     Free Shipping
                                                     <input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-index="0" name="shipping_method[0]">
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
 
 
                                             <tr class="order-total">
@@ -481,18 +441,35 @@
                                             </li> --}}
                                         </ul>
 
-                                        <div class="form-row place-order">
-
-                                            <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
-
-
-                                        </div>
+                                       
 
                                         {{-- <div class="clear"></div> --}}
 
+
+                                        
                                     </div>
                                 </div>
+                                {{-- <div class="form-row place-order">
+
+                                    <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+
+
+                                </div> --}}
                             </form>
+                            <div class="form-row place-order">
+
+                                {{-- <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt"> --}}
+                                <button type="submit" id="place_order" name="" class="button alt">Submit</button>
+
+
+                            </div>
+                            @else
+                            <div class="col-lg-12">
+                                <h4>Your cart is empty</h4>
+
+                            </div>
+
+                            @endif
                         </div> 
                         </div>                       
                     </div>                    

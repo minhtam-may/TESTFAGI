@@ -49,7 +49,16 @@
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="./cart"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+
+                            @if(Auth::check())
+                               <a href="/account/logout" class="login-panel">
+                                  <i class="fa fa-user"></i>
+                                  {{ Auth::user()->name}} - Logout
+                               </a>
+
+                            @else
+                               <li><a href="/account/login"><i class="fa fa-user"></i> Login</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
