@@ -60,7 +60,7 @@ Route::prefix('account')->group(function (){
 
 //admin
 Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
-    Route::get('user', [UserController::class, 'index'])->name('user');
+    Route::get('', [UserController::class, 'index'])->name('user');
     Route::get('user/{id}', [UserController::class, 'show']);
     Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::put('/user/{id}/edit', [UserController::class, 'update'])->name('user.update');
@@ -68,7 +68,8 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
 
     Route::get('product', [ProductController::class, 'index'])->name('product');
     Route::get('product/{id}', [ProductController::class, 'show']);
-    Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+    Route::get('/create', [ProductController::class, 'create'])->name('create');
+    Route::post('/create', [ProductController::class, 'store'])->name('store');
     Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/{id}/edit', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/{id}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
@@ -76,8 +77,6 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
     Route::prefix('login')->group(function () {
         Route::get('', [App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
         Route::post('', [App\Http\Controllers\Admin\HomeController::class, 'postLogin'])->withoutMiddleware('CheckAdminLogin');
-
-     
     });
 
     Route::get('logout', [App\Http\Controllers\Admin\HomeController::class, 'logout']);

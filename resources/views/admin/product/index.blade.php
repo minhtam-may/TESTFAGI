@@ -8,7 +8,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <a href="{{ route('product.create') }}" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href='{{route("create")}}' class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                         Create
                     </a>
 
@@ -30,18 +30,15 @@
                         
                         <div class="card-body">
                             <div class="table-responsive">
-                                
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Image</th>
-
                                             <th>FullName</th>
                                             <th>Description</th>
                                             <th>Price</th>
                                             <th>Action</th>
-                                            
                                         </tr>
                                     </thead>
                                    
@@ -49,12 +46,12 @@
                                         @foreach($products as $product)
                                         <tr>
                                             <td>#{{ $product->id }}</td>
-                                            <td ><img style="width: 50px" src="front/img/{{ $product->productImages[0]->path}}" alt=""></td>
+                                            <td ><img style="width: 50px" src="front/img/{{ $product->productImages[0]->path}} " alt=""></td>
                                             {{-- <td><img src="front/img/user/{{ $user->avatar ?? 'default-avatar.jpg'}}" alt=""></td> --}}
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->description}}</td>
                                             <td>${{ $product->discount }}</td>
-                                            <td class="d-flex">
+                                            <td class="d-flex pb-4 gap-2">
                                                 <a href="admin/product/{{ $product->id }}"
                                                     type="button" class="btn btn-secondary m-0 text-center p-3">
                                                     Details
@@ -65,7 +62,7 @@
                                                     Edit
                                                 </a>
 
-                                                <form action="{{ route('product.destroy', $product->id)}}" method="post" type="button" class="btn btn-danger">
+                                                <form action="{{ route('product.destroy', $product->id)}}" method="post" type="button" class="btn btn-danger pt-2">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger m-0">Delete</button>
@@ -78,7 +75,6 @@
                                             <div class="col-md-12">
                                                 <div class="product-pagination text-center">
                                                     {{ $products->links() }}
-                                                    
                                                 </div>
                                             </div>
                                         </div>

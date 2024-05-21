@@ -287,6 +287,7 @@
                                                 </select>
                                             </p> --}}
 
+                                            {{-- <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id ?? '' }}"> --}}
                                             <p id="billing_first_name_field" class="form-row form-row-first validate-required">
                                                 <label class="" for="billing_first_name">First Name <abbr title="required" class="required">*</abbr>
                                                 </label>

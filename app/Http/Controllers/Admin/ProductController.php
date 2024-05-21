@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
+
 use Illuminate\Http\Request;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductComment\ProductCommentServiceInterface;
@@ -29,10 +31,6 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = $this->productService->getProductOnIndex($request);
-
-        // $products = $this->productService->searchAndPaginate('name',$request->get('search'));
-
-
         return view('admin.product.index', compact('products'));
     }
 
@@ -44,7 +42,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        dd('he');
         return view('admin.product.create');
     }
 
@@ -56,7 +53,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        // $data = $request->all();
+        ProductImage::create($request->path());
+        Product::create($request->all());
+        return redirect()->route('product')->with('success','Product added successfully');
     }
 
     /**
@@ -85,7 +86,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         return view('admin.product.edit', compact('product'));
-
     }
 
     /**

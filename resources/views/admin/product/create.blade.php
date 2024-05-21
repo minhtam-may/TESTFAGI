@@ -4,7 +4,7 @@
 
 
 @section('body')
-@dd($product)
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -22,14 +22,16 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
-                        <div class="card-body">
+                        {{-- <div class="card-body">
+                            <form action="" method="post">
+                                @csrf
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
+                                            
                                             <th>Image</th>
-
                                             <th>FullName</th>
                                             <th>Description</th>
                                             <th>Price</th>
@@ -43,65 +45,67 @@
                                     <tbody>
                                         
                                         <tr>
-                                            <td>#{{ $product->id }}</td>
-                                            <td ><img style="width: 50px" src="front/img/{{ $product->productImages[0]->path}}" alt=""></td>
+                                            <td></td>
+                                            <td><input type="text" name="name" ></td>
                                             
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->description}}</td>
-                                            <td>${{ $product->price }}</td>
+                                            <td><input type="text" name="description" ></td>
+                                            <td><input type="text" name="price"></td>
+                                            <td><input type="text" name="discount"></td>
 
-                                            <td>${{ $product->discount }}</td>
-                                            <td>20</td>
-                                            <td>{{ $product->tag }}</td>
-                                            
+                                            <td><input type="text" name="qty"></td>
+                                            <td><input type="text" name="qty"></td>
+                                            <td>
+                                                <button type="submit">
+                                                    create
+                                                </button>
+                                            </td>
                                         </tr>
                                     
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        {{-- <div class="row ">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Product Id</label>
-                                <input type="text" name="title" class="form-control" placeholder="Title" value="{{ $product->id}}" readonly>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Image</label>
+                        </form> --}}
+                        <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <input type="file" name="path" class="form-control" placeholder="" onchange="changeImg(this): this.form.submit()">
+                                </div>
                                 
-                                <img style="width: 50px" src="front/img/{{ $product->productImages[0]->path}}" alt="">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">FullName</label>
-                                <input type="text" name="product_code" class="form-control" placeholder="Product Code" value="{{ $product->name}}" readonly>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="text" name="name" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col">
+                                    <textarea name="description" class="form-control" id="" placeholder="Description"></textarea>
+                                </div>
                             </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Description</label>
-                                <textarea name="description" class="form-control" placeholder="Description" readonly>{{ $product->description}}</textarea>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="text" name="price" class="form-control" placeholder="Price">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="discount" class="form-control" placeholder="Discount">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Price</label>
-                                <input type="text" name="created_at" class="form-control" placeholder="Created At" value="{{ $product->price }}" readonly>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="text" name="qty" class="form-control" placeholder="Quantity">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="tag" class="form-control" placeholder="Tag">
+                                </div>
                             </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Discount</label>
-                                <input type="text" name="updated_at" class="form-control" placeholder="Updated At" value="{{ $product->discount}}" readonly>
+                            <div class="row">
+                              <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                              </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Quantity</label>
-                                <input type="text" name="created_at" class="form-control" placeholder="Created At" value="{{ $product->qty}}" readonly>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Tag</label>
-                                <input type="text" name="updated_at" class="form-control" placeholder="Updated At" value="{{ $product->tag}}" readonly>
-                            </div>
-                        </div> --}}
+                        
+                        </form>
+                        
                     </div>
 
                 </div>
