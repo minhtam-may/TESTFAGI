@@ -65,25 +65,10 @@ class CartController extends Controller
     public function update($rowId)
     {
         Cart::update($rowId);
-        return redirect()->route('cart.index')->with('success', 'Product removed from cart!');
+        return redirect()->route('cart.index')->with('success', 'Product updated successfully!');
     }
 
-    // public function updateItem(Request $request, $rowId)
-    // {
-    //     
-    //     $request->validate([
-    //         'qty' => 'required|integer|min:1',
-    //         'price' => 'required|numeric|min:0',
-    //     ]);
-
-        
-    //     Cart::update($rowId, [
-    //         'qty' => $request->input('qty'),
-    //         'price' => $request->input('price')
-    //     ]);
-
-    //     return redirect()->route('cart.index')->with('success', 'Item updated successfully!');
-    // }
+   
 
     // Cập nhật toàn bộ giỏ hàng
     public function updateAll(Request $request)
@@ -100,9 +85,7 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Cart updated successfully!');
 
-        // $product = $this->productService->all();
-        // $relatedProducts = $this->productService->getRelatedProducts($product);
-        // return view('front.shop.cart', compact('product', 'relatedProducts'));               
+      
 
     }
 
