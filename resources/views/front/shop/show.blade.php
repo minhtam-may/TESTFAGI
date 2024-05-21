@@ -175,12 +175,12 @@
                                                     <td class="p-category"> Customer Review</td>
                                                     <td>
                                                         @for($i = 1; $i <= 5; $i++)
-                                                                @if($i <= $product->avgRating)
-                                                                  <i class="fa fa-star"></i>
-                                                                @else
-                                                                
-                                                                  <i class="fa fa-star"></i>
-                                                                @endif
+                                                            @if($i <= $product->avgRating)
+                                                                <i class="fa fa-star"></i>
+                                                            @else
+                                                            
+                                                                <i class="fa fa-star"></i>
+                                                            @endif
                                                         @endfor
                                                         <span> ({{ count($product->productComments) }})</span>
 
@@ -227,42 +227,9 @@
                                                         </div>
                                                     </div>
                                                 </form>
-                                                {{-- <div class="submit-review">
-                                                    <p><label for="name">Name</label> <input name="name" type="text"></p>
-                                                    <p><label for="email">Email</label> <input name="email" type="email"></p> --}}
-                                                    {{-- <div class="rating-chooser">
-                                                        <p>Your rating</p> --}}
-
-                                                        {{-- <div class="rating-wrap-post"> --}}
-
-                                                            {{-- @for($i = 1; $i <= 5; $i++)
-                                                                @if($i <= $products->avgRating)
-                                                                  <i class="fa fa-star"></i>
-                                                                @else --}}
-                                                            {{-- <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i> --}}
-                                                                  {{-- <i class="fa fa-star"></i>
-                                                                @endif
-                                                            @endfor --}}
-
-                                                            
-                                                            {{-- <span>({{ count($products->productComments)}})</span> --}}
-                                                        {{-- </div> --}}
-
-                                                    {{-- </div> --}}
-
-                                                    
-                                                    
-                                                    {{-- <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
-                                                    
-                                                    <br>
-                                                    <p><input type="submit" value="Submit"></p>
-                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -271,7 +238,6 @@
                         <div class="related-products-wrapper">
                             <h2 class="related-products-title">Related Products</h2>
                             <div class="related-products-carousel">
-                                {{-- @dd($relatedProducts) --}}
                                 @foreach( $relatedProducts as $product)
                                 
                                 <div class="single-product">
@@ -286,7 +252,7 @@
                                     <h2><a href="shop/product/{{ $product->id }}">{{ $product->name}}</a></h2>
 
                                     <div class="product-carousel-price">
-                                        {{-- <ins>{{ $products->discount}}</ins> <del>$100.00</del> --}}
+                                        
                                         @if($product->discount != null)
                                           <ins>${{ $product->discount }}</ins> <del>${{ $product->price }}</del>
                                         @else

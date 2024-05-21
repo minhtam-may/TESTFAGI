@@ -50,15 +50,7 @@
                                     @endif
                                     <form action="" method="post" enctype="multipart/form-data" class="user">
                                         @csrf
-                                        {{-- @if ($errors->any())
-                                          <div class="alert alert danger">
-                                              <ul>
-                                                @foreach ($errors->all() as $errors)
-                                                     <li>{{ $errors }}</li>
-                                                @endforeach
-                                              </ul>
-                                          </div>
-                                        @endif --}}
+                                    
                                         <div class="form-group">
                                             <input name="email" type="email" id="email" class="form-control form-control-user"
                                              aria-describedby="emailHelp"
@@ -75,17 +67,9 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a> -->
                                         <button type="submit" class="btn btn-primary btn-block btn-user">Login</button>
-                                        
-                                        
                                     </form>
                                     <hr>
-                                    <!-- <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div> -->
                                     <div class="text-center">
                                         <a class="small" href="">Create an Account!</a>
                                     </div>

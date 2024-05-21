@@ -126,9 +126,9 @@
                         <li class=""><a href="./shop">Single product</a></li>
                         <li class="{{ (request()->segment(1) == 'cart' ? 'active' : '') }}"><a href="/cart">Cart</a></li>
                         <li><a href="/checkout">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
+                        {{-- <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Contact</a></li> --}}
                     </ul>
                 </div>  
             </div>

@@ -174,24 +174,7 @@
                                                 </div>
                                             </li> --}}
                                         </ul>
-
-                                       
-
-                                        {{-- <div class="clear"></div> --}}
-
-
-                                        
-                                    {{-- </div> --}}
                                 </div>
-                                {{-- <div class="form-row place-order">
-
-                                    <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
-
-
-                                </div> --}}
-                            {{-- </form> --}}
-                           
-                            {{-- @else --}}
                             <div class="col-lg-12">
                                 <h4>{{ $notification }}</h4>
                             </div>

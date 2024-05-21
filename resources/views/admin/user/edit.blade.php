@@ -49,12 +49,6 @@
                                             <td><input type="text" name="id" class="form-control" placeholder="Title" value="{{ $user->id}}" ></td>
                                             <td><input type="text" name="name" class="form-control" placeholder="Title" value="{{ $user->name}}" ></td>
                                             <td><input type="text" name="email" class="form-control" placeholder="Title" value="{{ $user->email}}" ></td>
-                                            {{-- <td><input type="text" name="company_name" class="form-control" placeholder="Title" value="{{ $user->company_name }}" ></td>
-                                            <td><input type="text" name="country" class="form-control" placeholder="Title" value="{{ $user->country }}" ></td>
-                                            <td><input type="text" name="street_address" class="form-control" placeholder="Title" value="{{ $user->street_address }}" ></td>
-                                            <td><input type="text" name="postcode_zip" class="form-control" placeholder="Title" value="{{ $user->postcode_zip }}" ></td>
-                                            <td><input type="text" name="town_city" class="form-control" placeholder="Title" value="{{ $user->town_city }}" ></td>
-                                            <td><input type="text" name="phone" class="form-control" placeholder="Title" value="{{ $user->phone }}" ></td> --}}
                                             <td><input type="text" name="level" class="form-control" placeholder="Title" value="{{ $user->level }}" ></td>
                                             <td><input type="text" name="description" class="form-control" placeholder="Title" value="{{ $user->description }}" ></td>
                                             <td>
@@ -65,33 +59,6 @@
                                                  </div>
                                             </td>
 
-                                            
-
-
-
-
-                                            
-
-
-                                            {{-- <td><img src="front/img/user/{{ $user->avatar ?? 'default-avatar.jpg'}}" alt=""></td> --}}
-                                            {{-- <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->company_name }}</td>
-                                            <td>{{ $user->country }}</td>
-                                            <td>{{ $user->street_address }}</td>
-                                            <td>{{ $user->postcode_zip }}</td>
-                                            <td>{{ $user->town_city }}</td>
-                                            <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->level }}</td>
-                                            <td>{{ $user->description }}</td> --}}
-
-
-
-
-
-
-
-                                           
                                         </tr>
                                         
                                         

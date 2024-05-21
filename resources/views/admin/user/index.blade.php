@@ -32,24 +32,13 @@
                                             <th>Email</th>
                                             <th>Level</th>
                                             <th>Action</th>
-                                            {{-- <th>Salary</th> --}}
                                         </tr>
                                     </thead>
-                                    {{-- <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot> --}}
+                                   
                                     <tbody>
                                         @foreach($users as $user)
                                         <tr>
                                             <td>#{{ $user->id }}</td>
-                                            {{-- <td><img src="front/img/user/{{ $user->avatar ?? 'default-avatar.jpg'}}" alt=""></td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email}}</td>
                                             <td>{{ $user->level }}</td>
@@ -68,9 +57,8 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger m-0">Delete</button>
-                                                  </form>
+                                                </form>
                                             </td>
-                                            {{-- <td>$320,800</td> --}}
                                         </tr>
                                         @endforeach
                                         

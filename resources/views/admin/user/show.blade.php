@@ -33,17 +33,12 @@
                                             <th>Phone</th>
                                             <th>Level</th>
                                             <th>Description</th>
-
-
-                                            {{-- <th>Salary</th> --}}
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                        {{-- @dd($user) --}}
                                         <tr>
                                             <td>{{ $user->id }}</td>
-                                            {{-- <td><img src="front/img/user/{{ $user->avatar ?? 'default-avatar.jpg'}}" alt=""></td> --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->company_name }}</td>
@@ -54,31 +49,6 @@
                                             <td>{{ $user->phone }}</td>
                                             <td>{{ $user->level }}</td>
                                             <td>{{ $user->description }}</td>
-
-
-
-
-
-
-
-                                            {{-- <td class="d-flex">
-                                                <a href="admin/user/{{ $user->id }}"
-                                                    type="button" class="btn btn-secondary m-0 text-center">
-                                                    Details
-                                                </a>
-
-                                                <a href="admin/user/{{ $user->id }}/edit"
-                                                    type="button" class="btn btn-warning m-0 d-flex text-center align-middle">
-                                                    Edit
-                                                </a>
-
-                                                <form action="" method="post" type="button" class="btn btn-danger">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger m-0">Delete</button>
-                                                  </form>
-                                            </td> --}}
-                                            {{-- <td>$320,800</td> --}}
                                         </tr>
                                         
                                         

@@ -25,7 +25,7 @@ class HomeController extends Controller
         $remember = $request->remember;
 
         if(Auth::attempt($credentials, $remember)) {
-            return redirect('admin/user');
+            return redirect('admin');
         } else {
             return back()->with('notification', 'Email or password is wrong');
         };

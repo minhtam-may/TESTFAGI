@@ -36,72 +36,25 @@
                                             <th>Discount</th>
                                             <th>Quantity</th>
                                             <th>Tag</th>
-                                            
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                        
                                         <tr>
                                             <td>#{{ $product->id }}</td>
                                             <td ><img style="width: 50px" src="front/img/{{ $product->productImages[0]->path}}" alt=""></td>
-                                            
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->description}}</td>
                                             <td>${{ $product->price }}</td>
-
                                             <td>${{ $product->discount }}</td>
                                             <td>{{ $product->qty }}</td>
                                             <td>{{ $product->tag }}</td>
-                                            
                                         </tr>
-                                    
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        {{-- <div class="row ">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Product Id</label>
-                                <input type="text" name="title" class="form-control" placeholder="Title" value="{{ $product->id}}" readonly>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Image</label>
-                                
-                                <img style="width: 50px" src="front/img/{{ $product->productImages[0]->path}}" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">FullName</label>
-                                <input type="text" name="product_code" class="form-control" placeholder="Product Code" value="{{ $product->name}}" readonly>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Description</label>
-                                <textarea name="description" class="form-control" placeholder="Description" readonly>{{ $product->description}}</textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Price</label>
-                                <input type="text" name="created_at" class="form-control" placeholder="Created At" value="{{ $product->price }}" readonly>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Discount</label>
-                                <input type="text" name="updated_at" class="form-control" placeholder="Updated At" value="{{ $product->discount}}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Quantity</label>
-                                <input type="text" name="created_at" class="form-control" placeholder="Created At" value="{{ $product->qty}}" readonly>
-                            </div>
-                            <div class="col mb-3">
-                                <label class="form-lable" for="">Tag</label>
-                                <input type="text" name="updated_at" class="form-control" placeholder="Updated At" value="{{ $product->tag}}" readonly>
-                            </div>
-                        </div> --}}
+                        
                     </div>
 
                 </div>
